@@ -2,16 +2,16 @@ import streamlit as st
 from PIL import Image
 from transformers import BlipProcessor, BlipForConditionalGeneration
 
-# Page settings
+# Page configuration
 st.set_page_config(
     page_title="AI Image Caption Generator",
     layout="centered"
 )
 
-st.title("🖼️ AI Image Caption Generator")
-st.write("Upload an image and get an AI-generated caption.")
+st.title("🖼️ AI Tool for Image Caption Generation")
+st.write("Upload an image and generate an AI-based caption.")
 
-# Load model only once (important for Streamlit Cloud)
+# Load model once
 @st.cache_resource
 def load_model():
     processor = BlipProcessor.from_pretrained(
@@ -24,7 +24,7 @@ def load_model():
 
 processor, model = load_model()
 
-# File uploader
+# Image upload
 uploaded_file = st.file_uploader(
     "Choose an image",
     type=["jpg", "jpeg", "png"]
