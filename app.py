@@ -10,159 +10,110 @@ st.set_page_config(
     layout="centered"
 )
 
-# ------------------ ADVANCED CSS ------------------
+# ------------------ CUSTOM CSS (BUTTON ENHANCED ONLY) ------------------
 st.markdown("""
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
 
 /* MAIN BACKGROUND */
 .stApp {
-    background:
-        linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-        url("https://images.unsplash.com/photo-1526378722484-bd91ca387e72");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
-    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ADEDE, #F9D423);
+    background-size: 800% 800%;
+    animation: gradientBG 15s ease infinite;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-/* MAIN CONTAINER */
-.block-container {
-    background: rgba(255,255,255,0.08);
-    backdrop-filter: blur(15px);
-    border-radius: 30px;
-    padding: 35px;
-    box-shadow: 0 0 50px rgba(0,0,0,0.45);
+/* BACKGROUND ANIMATION */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
 /* TITLE */
 .title {
-    font-size: 52px;
-    font-weight: 800;
+    font-size: 48px;
+    font-weight: 900;
     text-align: center;
-    background: linear-gradient(90deg, #00f2fe, #4facfe, #f093fb);
+    background: linear-gradient(90deg, #ffffff, #ffeb3b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-shadow: 0 0 30px rgba(255,255,255,0.3);
 }
 
 /* SUBTITLE */
 .subtitle {
     text-align: center;
     font-size: 18px;
-    color: #f1f1f1;
-    margin-bottom: 35px;
-    opacity: 0.9;
+    color: #ffffff;
+    margin-bottom: 30px;
 }
 
-/* FILE UPLOADER */
-[data-testid="stFileUploader"] {
-    background: rgba(255,255,255,0.15);
-    border-radius: 25px;
-    border: 2px dashed rgba(255,255,255,0.7);
-    padding: 25px;
+/* ----------- ENHANCED BUTTON ----------- */
+.stButton button {
+    background: linear-gradient(
+        135deg,
+        #ff0080,
+        #ff8c00,
+        #40e0d0
+    );
+    background-size: 300% 300%;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    border-radius: 40px;
+    padding: 14px 42px;
+    border: none;
+    cursor: pointer;
+    animation: buttonGradient 4s ease infinite;
+    box-shadow: 0 0 20px rgba(255, 0, 150, 0.6);
     transition: all 0.3s ease;
 }
 
-[data-testid="stFileUploader"]:hover {
-    background: rgba(255,255,255,0.25);
-    transform: scale(1.02);
+/* BUTTON GRADIENT ANIMATION */
+@keyframes buttonGradient {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
 }
 
-/* BUTTON */
-.stButton button {
-    background: linear-gradient(135deg, #ff512f, #f09819);
-    color: white;
-    font-size: 18px;
-    font-weight: 600;
-    border-radius: 40px;
-    padding: 14px 45px;
-    border: none;
-    transition: all 0.4s ease;
-    box-shadow: 0 0 25px rgba(255,120,0,0.8);
-    position: relative;
-    overflow: hidden;
-}
-
-/* BUTTON GLOW EFFECT */
-.stButton button::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,0.6),
-        transparent
-    );
-    transition: all 0.6s ease;
-}
-
-.stButton button:hover::before {
-    left: 100%;
-}
-
+/* BUTTON HOVER EFFECT */
 .stButton button:hover {
-    transform: translateY(-4px) scale(1.08);
-    box-shadow: 0 0 45px rgba(255,160,0,1);
+    transform: scale(1.12);
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.9);
 }
 
-/* IMAGE */
-img {
-    border-radius: 25px;
-    border: 3px solid rgba(255,255,255,0.6);
-    box-shadow: 0 0 35px rgba(0,0,0,0.6);
-    transition: transform 0.4s ease;
-}
-
-img:hover {
-    transform: scale(1.03);
+/* BUTTON CLICK EFFECT */
+.stButton button:active {
+    transform: scale(1.05);
 }
 
 /* CAPTION BOX */
 .caption-box {
-    margin-top: 30px;
-    padding: 30px;
+    margin-top: 25px;
+    padding: 25px;
     border-radius: 25px;
     font-size: 22px;
-    font-weight: 600;
+    font-weight: bold;
     text-align: center;
-    background: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.25);
     color: #ffffff;
-    backdrop-filter: blur(18px);
-    border: 2px solid rgba(255,255,255,0.5);
-    animation: fadeUp 1s ease;
-}
-
-/* CAPTION ANIMATION */
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(40px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255,255,255,0.4);
 }
 
 /* FOOTER */
 .footer {
     text-align: center;
-    color: #ffffff;
-    opacity: 0.85;
-    margin-top: 50px;
-    font-size: 14px;
+    color: white;
+    opacity: 0.8;
+    margin-top: 40px;
 }
+
 </style>
 """, unsafe_allow_html=True)
 
 # ------------------ TITLE ------------------
 st.markdown('<div class="title">🖼️ AI Image Caption Generator</div>', unsafe_allow_html=True)
-st.markdown('<div class="subtitle">Upload an image and let AI describe it beautifully ✨</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Upload an image and let AI describe it magically ✨</div>', unsafe_allow_html=True)
 
 # ------------------ LOAD MODEL ------------------
 @st.cache_resource
@@ -181,7 +132,7 @@ if uploaded_file:
     st.image(image, caption="✨ Uploaded Image ✨", use_container_width=True)
 
     if st.button("✨ Generate Caption"):
-        with st.spinner("AI is thinking... 🤖✨"):
+        with st.spinner("AI is creating magic... 🤖✨"):
             inputs = processor(image, return_tensors="pt")
             output = model.generate(**inputs)
             caption = processor.decode(output[0], skip_special_tokens=True)
@@ -193,3 +144,5 @@ if uploaded_file:
 
 # ------------------ FOOTER ------------------
 st.markdown('<div class="footer">Made with ❤️ | Streamlit × AI</div>', unsafe_allow_html=True)
+
+
