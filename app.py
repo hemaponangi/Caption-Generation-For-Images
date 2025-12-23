@@ -10,15 +10,15 @@ st.set_page_config(
     layout="centered"
 )
 
-# ------------------ CUSTOM CSS (OCEAN / NATURE BACKGROUND) ------------------
+# ------------------ CUSTOM CSS (NATURE + FLOWERS) ------------------
 st.markdown("""
 <style>
 
 /* MAIN BACKGROUND */
 .stApp {
     background:
-        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
-        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+        linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+        url("https://images.unsplash.com/photo-1501004318641-b39e6451bec6");
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -30,7 +30,7 @@ st.markdown("""
     font-size: 48px;
     font-weight: 900;
     text-align: center;
-    background: linear-gradient(90deg, #ffffff, #c8f8ff);
+    background: linear-gradient(90deg, #ffffff, #ffe082);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -45,19 +45,19 @@ st.markdown("""
 
 /* FILE UPLOADER */
 [data-testid="stFileUploader"] {
-    background: rgba(255,255,255,0.18);
+    background: rgba(255,255,255,0.2);
     border-radius: 20px;
     border: 2px dashed #ffffff;
     padding: 20px;
 }
 
-/* BUTTON (KEEPING YOUR COLORFUL STYLE) */
+/* COLORFUL BUTTON */
 .stButton button {
     background: linear-gradient(
         135deg,
-        #ff0080,
-        #ff8c00,
-        #40e0d0
+        #ff4081,
+        #ff9800,
+        #4dd0e1
     );
     background-size: 300% 300%;
     color: white;
@@ -67,7 +67,7 @@ st.markdown("""
     padding: 14px 42px;
     border: none;
     animation: buttonGradient 4s ease infinite;
-    box-shadow: 0 0 20px rgba(255, 0, 150, 0.6);
+    box-shadow: 0 0 20px rgba(255, 100, 100, 0.7);
     transition: all 0.3s ease;
 }
 
