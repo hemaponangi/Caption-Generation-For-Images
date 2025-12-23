@@ -10,97 +10,80 @@ st.set_page_config(
     layout="centered"
 )
 
-# ------------------ CUSTOM CSS (FLORAL PASTEL PINK THEME) ------------------
+# ------------------ CUSTOM CSS (BUTTON ENHANCED ONLY) ------------------
 st.markdown("""
 <style>
 
-/* MAIN BACKGROUND - FLORAL PASTEL PINK */
+/* MAIN BACKGROUND */
 .stApp {
-    background:
-        linear-gradient(rgba(255, 240, 245, 0.6), rgba(255, 230, 240, 0.6)),
-        url("https://images.unsplash.com/photo-1557682250-46e8d46b8b6f?auto=format&fit=crop&w=1470&q=80");
-    background-size: cover;
-    background-position: center;
-    background-attachment: fixed;
+    background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ADEDE, #F9D423);
+    background-size: 800% 800%;
+    animation: gradientBG 15s ease infinite;
     font-family: 'Segoe UI', sans-serif;
 }
 
-/* COLOR-CHANGING TITLE */
+/* BACKGROUND ANIMATION */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* TITLE */
 .title {
     font-size: 48px;
     font-weight: 900;
     text-align: center;
-    background: linear-gradient(
-        90deg,
-        #ff6ec4,
-        #f9d423,
-        #ffb6b9,
-        #ffc1e3
-    );
-    background-size: 300% 300%;
-    animation: textGradient 6s ease infinite;
+    background: linear-gradient(90deg, #ffffff, #ffeb3b);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
-}
-
-/* TEXT COLOR ANIMATION */
-@keyframes textGradient {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 /* SUBTITLE */
 .subtitle {
     text-align: center;
     font-size: 18px;
-    color: #444;
+    color: #ffffff;
     margin-bottom: 30px;
 }
 
-/* FILE UPLOADER */
-[data-testid="stFileUploader"] {
-    background: rgba(255,255,255,0.55);
-    border-radius: 20px;
-    border: 2px dashed #f48fb1;
-    padding: 20px;
-}
-
-/* COLORFUL BUTTON */
+/* ----------- ENHANCED BUTTON ----------- */
 .stButton button {
     background: linear-gradient(
         135deg,
-        #ff9a9e,
-        #fad0c4,
-        #fbc2eb
+        #ff0080,
+        #ff8c00,
+        #40e0d0
     );
     background-size: 300% 300%;
-    color: #4a148c;
+    color: white;
     font-size: 18px;
     font-weight: bold;
     border-radius: 40px;
     padding: 14px 42px;
     border: none;
+    cursor: pointer;
     animation: buttonGradient 4s ease infinite;
-    box-shadow: 0 0 18px rgba(255, 105, 180, 0.5);
+    box-shadow: 0 0 20px rgba(255, 0, 150, 0.6);
     transition: all 0.3s ease;
 }
 
+/* BUTTON GRADIENT ANIMATION */
 @keyframes buttonGradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
+/* BUTTON HOVER EFFECT */
 .stButton button:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 30px rgba(255, 105, 180, 0.8);
+    transform: scale(1.12);
+    box-shadow: 0 0 35px rgba(255, 255, 255, 0.9);
 }
 
-/* IMAGE */
-img {
-    border-radius: 20px;
-    box-shadow: 0 0 25px rgba(0,0,0,0.3);
+/* BUTTON CLICK EFFECT */
+.stButton button:active {
+    transform: scale(1.05);
 }
 
 /* CAPTION BOX */
@@ -111,17 +94,17 @@ img {
     font-size: 22px;
     font-weight: bold;
     text-align: center;
-    background: rgba(255,255,255,0.65);
-    color: #4a148c;
-    backdrop-filter: blur(10px);
-    border: 2px solid rgba(244,143,177,0.6);
+    background: rgba(255,255,255,0.25);
+    color: #ffffff;
+    backdrop-filter: blur(15px);
+    border: 2px solid rgba(255,255,255,0.4);
 }
 
 /* FOOTER */
 .footer {
     text-align: center;
-    color: #555;
-    opacity: 0.9;
+    color: white;
+    opacity: 0.8;
     margin-top: 40px;
 }
 
