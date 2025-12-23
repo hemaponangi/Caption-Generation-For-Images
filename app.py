@@ -6,7 +6,6 @@ import torch
 # ------------------ PAGE CONFIG ------------------
 st.set_page_config(
     page_title="AI Image Caption Generator",
-    page_icon="🖼️",
     layout="centered"
 )
 
@@ -144,3 +143,4 @@ if uploaded_file:
 
 # ------------------ FOOTER ------------------
 st.markdown('<div class="footer">Made with ❤️ | Streamlit × AI</div>', unsafe_allow_html=True)
+
