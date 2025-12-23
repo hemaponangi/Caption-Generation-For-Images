@@ -210,6 +210,6 @@ if uploaded_file:
             unsafe_allow_html=True
         )
 
-# ------------------ FOOTER ------------------
-st.markdown('<div class="footer">Made with ❤️ using Streamlit & AI</div>', unsafe_allow_html=True)
+
+
 
