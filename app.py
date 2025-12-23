@@ -39,7 +39,7 @@ st.markdown("""
 /* FLOATING SHAPES BASE */
 .shape {
     position: fixed;
-    opacity: 0.5;
+    opacity: 0.8;
     animation: floatUp linear infinite;
     z-index: 0;
 }
@@ -212,3 +212,4 @@ if uploaded_file:
 
 # ------------------ FOOTER ------------------
 st.markdown('<div class="footer">Made with ❤️ using Streamlit & AI</div>', unsafe_allow_html=True)
+
