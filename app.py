@@ -10,23 +10,19 @@ st.set_page_config(
     layout="centered"
 )
 
-# ------------------ CUSTOM CSS (BUTTON ENHANCED ONLY) ------------------
+# ------------------ CUSTOM CSS (OCEAN / NATURE BACKGROUND) ------------------
 st.markdown("""
 <style>
 
 /* MAIN BACKGROUND */
 .stApp {
-    background: linear-gradient(270deg, #ff6ec4, #7873f5, #4ADEDE, #F9D423);
-    background-size: 800% 800%;
-    animation: gradientBG 15s ease infinite;
+    background:
+        linear-gradient(rgba(0,0,0,0.45), rgba(0,0,0,0.45)),
+        url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e");
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     font-family: 'Segoe UI', sans-serif;
-}
-
-/* BACKGROUND ANIMATION */
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 /* TITLE */
@@ -34,7 +30,7 @@ st.markdown("""
     font-size: 48px;
     font-weight: 900;
     text-align: center;
-    background: linear-gradient(90deg, #ffffff, #ffeb3b);
+    background: linear-gradient(90deg, #ffffff, #c8f8ff);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -43,11 +39,19 @@ st.markdown("""
 .subtitle {
     text-align: center;
     font-size: 18px;
-    color: #ffffff;
+    color: #f1f1f1;
     margin-bottom: 30px;
 }
 
-/* ----------- ENHANCED BUTTON ----------- */
+/* FILE UPLOADER */
+[data-testid="stFileUploader"] {
+    background: rgba(255,255,255,0.18);
+    border-radius: 20px;
+    border: 2px dashed #ffffff;
+    padding: 20px;
+}
+
+/* BUTTON (KEEPING YOUR COLORFUL STYLE) */
 .stButton button {
     background: linear-gradient(
         135deg,
@@ -62,28 +66,26 @@ st.markdown("""
     border-radius: 40px;
     padding: 14px 42px;
     border: none;
-    cursor: pointer;
     animation: buttonGradient 4s ease infinite;
     box-shadow: 0 0 20px rgba(255, 0, 150, 0.6);
     transition: all 0.3s ease;
 }
 
-/* BUTTON GRADIENT ANIMATION */
 @keyframes buttonGradient {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* BUTTON HOVER EFFECT */
 .stButton button:hover {
     transform: scale(1.12);
     box-shadow: 0 0 35px rgba(255, 255, 255, 0.9);
 }
 
-/* BUTTON CLICK EFFECT */
-.stButton button:active {
-    transform: scale(1.05);
+/* IMAGE */
+img {
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.6);
 }
 
 /* CAPTION BOX */
@@ -104,7 +106,7 @@ st.markdown("""
 .footer {
     text-align: center;
     color: white;
-    opacity: 0.8;
+    opacity: 0.85;
     margin-top: 40px;
 }
 
@@ -144,5 +146,3 @@ if uploaded_file:
 
 # ------------------ FOOTER ------------------
 st.markdown('<div class="footer">Made with ❤️ | Streamlit × AI</div>', unsafe_allow_html=True)
-
-
