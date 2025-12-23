@@ -1,3 +1,15 @@
+import streamlit as st
+from PIL import Image
+from transformers import BlipProcessor, BlipForConditionalGeneration
+import torch
+
+# ------------------ PAGE CONFIG ------------------
+st.set_page_config(
+    page_title="AI Image Caption Generator",
+    page_icon="🖼️",
+    layout="centered"
+)
+
 # ------------------ CUSTOM CSS (FLORAL PASTEL PINK THEME) ------------------
 st.markdown("""
 <style>
@@ -115,3 +127,37 @@ img {
 
 </style>
 """, unsafe_allow_html=True)
+
+# ------------------ TITLE ------------------
+st.markdown('<div class="title">🖼️ AI Image Caption Generator</div>', unsafe_allow_html=True)
+st.markdown('<div class="subtitle">Upload an image and let AI describe it magically ✨</div>', unsafe_allow_html=True)
+
+# ------------------ LOAD MODEL ------------------
+@st.cache_resource
+def load_model():
+    processor = BlipProcessor.from_pretrained("Salesforce/blip-image-captioning-base")
+    model = BlipForConditionalGeneration.from_pretrained("Salesforce/blip-image-captioning-base")
+    return processor, model
+
+processor, model = load_model()
+
+# ------------------ IMAGE UPLOAD ------------------
+uploaded_file = st.file_uploader("📤 Upload an Image", type=["jpg", "jpeg", "png"])
+
+if uploaded_file:
+    image = Image.open(uploaded_file).convert("RGB")
+    st.image(image, caption="✨ Uploaded Image ✨", use_container_width=True)
+
+    if st.button("✨ Generate Caption"):
+        with st.spinner("AI is creating magic... 🤖✨"):
+            inputs = processor(image, return_tensors="pt")
+            output = model.generate(**inputs)
+            caption = processor.decode(output[0], skip_special_tokens=True)
+
+        st.markdown(
+            f'<div class="caption-box">📸 {caption}</div>',
+            unsafe_allow_html=True
+        )
+
+# ------------------ FOOTER ------------------
+st.markdown('<div class="footer">Made with ❤️ | Streamlit × AI</div>', unsafe_allow_html=True)
